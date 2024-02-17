@@ -40,13 +40,13 @@ def create_person(name, height, birthdate):
   # - height is an int object in centimetres
   # - birthdate is a date object from the
   # module datetime
-    pers= person()
-    pers.name= name
-    pers.height = height
+    person= Person()
+    person.name= name
+    person.height = height
     person.birthdate = birthdate
-    return pers
+    return person
 
-class person():
+class Person():
     pass
 
 def get_age(person):
@@ -54,7 +54,7 @@ def get_age(person):
     today = date.today()
     age = today.year - person.birthdate.year
     if (today.month, today.day) < (person.birthdate.month, person.birthdate.day):
-        age -= 1
+        age = today.year - person.birthdate.year-1
 
     return age 
 def get_description(person):
@@ -62,7 +62,6 @@ def get_description(person):
       # N cm high and is M years old, where N and M
       # are integers
     age  = get_age(person)
-    print(str(person.name) + ' is ' +str(person.height)+' cm high and is ' + str(age)+' years old.')
     return (str(person.name) + ' is ' +str(person.height)+' cm high and is ' + str(age)+' years old.')
   
 def main():
@@ -70,18 +69,13 @@ def main():
   # 190 cm, who was born on August 14, 1976 and
   # output a description of this individual.
     
-    #birthdate = date(1976, 8, 14) 
+    birthdate = date(1976, 8, 14) 
     name= 'Michael'
     height = 190
-    birthdate = c_birthdate()
-    birthdate.year = 2000
-    birthdate.month = 1
-    birthdate.day = 19
     person = create_person(name, height, birthdate)
-    (get_description(person))
+    print(get_description(person))
     
-class c_birthdate():
-    pass
+
 
 main()
   

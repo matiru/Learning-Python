@@ -61,3 +61,7 @@ my_tuple = tuple(my_list)
 
 print(my_list)
 print(my_tuple)
+
+L =[1,1,2,2]
+map(L,lambda X:X**2)
+print(L)
